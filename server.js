@@ -12,6 +12,13 @@ app.get('/', (req, res) => {
     });
 });
 
+app.post('/', (req, res) => {
+    console.log(req);
+    res.json({
+        success: true,
+    });
+});
+
 app.listen(4444, (err) => {
     if (err) {
         return console.log(err);
