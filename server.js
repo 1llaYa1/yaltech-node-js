@@ -2,6 +2,8 @@ import express from "express"
 import cors from "cors"
 import fs from 'fs'
 
+import {pool} from './db.js'
+
 const app = express();
 
 app.use(express.json());
@@ -13,20 +15,47 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/', (req, res) => {
-    fs.writeFile('./output.json', req.body, 'utf8', (err) => {
-        if (err) {
-            res.send(err.body);
+app.get('/test', (req, res) => {
+    console.log("t");
+    /*pool.query('SELECT NOW()', (error, result) => {
+        if(error) {
+            res.send(err);
         } else {
             res.json({
                 success: true,
-                req
             });
         }
-    })
+        return;
+    });*/
+    res.send("test");
 });
 
-app.listen(4444, (err) => {
+/*app.post('/', (req, res) => {  
+    fs.readFile('./output.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        try { 
+        fs.writeFileSync('./output.json', data.body, 'utf8', (err) => {
+            if (err) {
+                res.send(err.body);
+            } else {
+                res.json({
+                    success: true
+                });
+            }
+        });
+        } catch {
+            res.json({
+                success: true
+            });
+        }
+    });
+});*/
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (err) => {
     if (err) {
         return console.log(err);
     }
