@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
-import fs from 'fs'
+//import fs from 'fs'
 
-import {pool} from './db.js'
+//import {pool} from './db.js'
 
 const app = express();
 
@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/test', (req, res) => {
+/*app.get('/test', (req, res) => {
     console.log("t");
-    /*pool.query('SELECT NOW()', (error, result) => {
+    pool.query('SELECT NOW()', (error, result) => {
         if(error) {
             res.send(err);
         } else {
@@ -26,9 +26,9 @@ app.get('/test', (req, res) => {
             });
         }
         return;
-    });*/
+    });
     res.send("test");
-});
+});*/
 
 /*app.post('/', (req, res) => {  
     fs.readFile('./output.json', 'utf8', (err, data) => {
@@ -54,7 +54,7 @@ app.get('/test', (req, res) => {
     });
 });*/
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4444;
 app.listen(PORT, (err) => {
     if (err) {
         return console.log(err);
