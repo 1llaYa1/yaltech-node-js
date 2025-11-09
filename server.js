@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
         success: true,
     });
 });
-
+/*
 pool.query('SELECT NOW()', (error, result) => {
     if(error) {
         res.send(err);
@@ -23,9 +23,9 @@ pool.query('SELECT NOW()', (error, result) => {
             success: true,
         });
     }
-});
+});*/
 
-/*app.get('/test', (req, res) => {
+app.get('/test', (req, res) => {
     console.log("t");
     pool.query('SELECT NOW()', (error, result) => {
         if(error) {
@@ -38,7 +38,7 @@ pool.query('SELECT NOW()', (error, result) => {
         return;
     });
     res.send("test");
-});*/
+});
 
 /*app.post('/', (req, res) => {  
     fs.readFile('./output.json', 'utf8', (err, data) => {
