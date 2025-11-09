@@ -3,11 +3,13 @@ import cors from "cors"
 
 const app = express();
 
-//app.use(express.json);
+app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Hello World 2!');
+    res.json({
+        success: true,
+    });
 });
 
 app.listen(4444, (err) => {
