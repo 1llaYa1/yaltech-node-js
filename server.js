@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-//import {pool} from './db.js'
+import {pool} from './db.js'
 
 const app = express();
 
@@ -13,6 +13,16 @@ app.get('/', (req, res) => {
     res.json({
         success: true,
     });
+});
+
+pool.query('SELECT NOW()', (error, result) => {
+    if(error) {
+        res.send(err);
+    } else {
+        res.json({
+            success: true,
+        });
+    }
 });
 
 /*app.get('/test', (req, res) => {
