@@ -15,7 +15,13 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/test', checkConnection);
+app.post('/', (req, res) => {
+    res.json({
+        success: true,
+    })
+});
+
+//app.get('/test', checkConnection);
 
 /*app.post('/', (req, res) => {  
     fs.readFile('./output.json', 'utf8', (err, data) => {
