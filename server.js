@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-import {pool} from './db.js'
+import { checkConnection } from './db.js'
 
 const app = express();
 
@@ -14,29 +14,8 @@ app.get('/', (req, res) => {
         success: true,
     });
 });
-/*
-pool.query('SELECT NOW()', (error, result) => {
-    if(error) {
-        res.send(err);
-    } else {
-        res.json({
-            success: true,
-        });
-    }
-});*/
 
-app.get('/test', (req, res) => {
-    pool.query('SELECT NOW()', (error, result) => {
-        if(error) {
-            res.send(err);
-        } else {
-            res.json({
-                success: true,
-            });
-        }
-        return;
-    });
-});
+app.get('/test', checkConnection);
 
 /*app.post('/', (req, res) => {  
     fs.readFile('./output.json', 'utf8', (err, data) => {
