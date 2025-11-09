@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-    fs.writeFile('./output.json', req, 'utf8', (err) => {
+    fs.writeFile('./output.json', req.body, 'utf8', (err) => {
         if (err) {
-            res.send(err);
+            res.send(err.body);
         } else {
             res.json({
                 success: true,
