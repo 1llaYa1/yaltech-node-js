@@ -26,7 +26,6 @@ pool.query('SELECT NOW()', (error, result) => {
 });*/
 
 app.get('/test', (req, res) => {
-    console.log("t");
     pool.query('SELECT NOW()', (error, result) => {
         if(error) {
             res.send(err);
@@ -37,7 +36,6 @@ app.get('/test', (req, res) => {
         }
         return;
     });
-    res.send("test");
 });
 
 /*app.post('/', (req, res) => {  
