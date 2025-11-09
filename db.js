@@ -9,11 +9,11 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-export const checkConnection = (request, response) => {
-    pool.query('SELECT NOW()', (err, res) => {
+export const checkConnection = (req, res) => {
+    pool.query('SELECT NOW()', (err, result) => {
         if(err) {
             console.error('Error connecting to the database', err.stack);
         }
-        response.status(200);    
+        res.status(200);    
     });
 }
