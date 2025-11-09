@@ -47,8 +47,7 @@ app.get('/test', checkConnection);
     });
 });*/
 
-const PORT = process.env.PORT || 4444;
-app.listen(PORT, (err) => {
+app.listen(4444, (err) => {
     if (err) {
         return console.log(err);
     }
