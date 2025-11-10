@@ -1,14 +1,15 @@
-import { Pool } from 'pg';
-import { configDotenv } from 'dotenv';
+import * as dotenv from 'dotenv';
 
-configDotenv({override: true, path: './.env'}); 
+dotenv.config({ path: path.resolve('./.env') });
+
+import { Pool } from 'pg';
 
 const pool = new Pool({
-  user: 'postgres',
-  host: '62.84.123.36',
-  database: 'yaltech',
-  password: 'Didi0902',
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 export const testConnection = async () => {
