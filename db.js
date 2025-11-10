@@ -18,12 +18,9 @@ export async function testConnection() {
     client.release();
 }
 
-export const getClientsTable = async (req, res) => {
-    await pool.query('SELECT * FROM clients', (err, result) => {
-        if(err) {
-            console.log(result);
-            console.error('Error connecting to the database', err.stack);
-        }
-        res.status(200);    
-    });
+export async function getTableContents() {
+    console.log('Table Contents:');
+    const result = await pool.query('SELECT * FROM clients');
+    console.log(result.rows);
+    return result.rows[0];
 }

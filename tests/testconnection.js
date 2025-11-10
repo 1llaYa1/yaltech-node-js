@@ -1,14 +1,11 @@
 import { Pool } from 'pg';
-import { configDotenv } from 'dotenv';
-
-configDotenv();
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  user: 'postgres',
+  host: '62.84.123.36',
+  database: 'yaltech',
+  password: 'Didi0902',
+  port: 5432,
 });
 
 async function testConnect() {
@@ -17,5 +14,13 @@ async function testConnect() {
     console.log('Connected!');
     client.release();
 }
+
+async function getTableContents() {
+    console.log('Table Contents:');
+    const result = await pool.query('SELECT * FROM clients');
+    console.log(result.rows);
+}
+
+getTableContents();
 
 testConnect();

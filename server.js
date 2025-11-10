@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-import { testConnection } from './db.js'
+import { getTableContents } from './db.js'
 
 const app = express();
 
@@ -21,8 +21,8 @@ app.post('/', (req, res) => {
     })
 });
 
-app.get('/test', testConnection, (req, res) => {
-    res.send('sent');
+app.get('/test', (req, res) => {
+    res.json(getTableContents());
 });
 
 /*app.post('/', (req, res) => {  
