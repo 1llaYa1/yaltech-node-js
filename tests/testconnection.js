@@ -35,4 +35,5 @@ export const getClientsTable = async (req, res) => {
 }
 
 //var w = getClientsTable();
+
 console.log(await testConnection())
