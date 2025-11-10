@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-import { getClientsTableContents, testConnection } from './db.js'
+import { getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
 
 const app = express();
 
@@ -23,6 +23,14 @@ app.post('/', (req, res) => {
 
 app.get('/clients', async (req, res) => {
     res.send(await getClientsTableContents());
+});
+
+app.post('/clients', async (req, res) => {
+    const data = JSON.parse(req.body);
+    const fullname = data.fullname;
+    const email = data.email;
+    const comment = data.comment;
+    res.send(await addClientToClientsTable(fullname, email, comment));
 });
 
 app.get('/testdbconnection', async (req, res) => {
