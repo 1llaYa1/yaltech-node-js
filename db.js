@@ -4,11 +4,11 @@ import { configDotenv } from 'dotenv';
 configDotenv({override: true, path: './.env'}); 
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  user: 'postgres',
+  host: '62.84.123.36',
+  database: 'yaltech',
+  password: 'Didi0902',
+  port: 5432,
 });
 
 export async function testConnection() {

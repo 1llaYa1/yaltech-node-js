@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 import { configDotenv } from 'dotenv';
 
-configDotenv({override: true, path: './.env'});
+configDotenv();
 
 const pool = new Pool({
   user: process.env.DB_USER,
