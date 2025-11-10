@@ -22,5 +22,5 @@ export async function getTableContents() {
     console.log('Table Contents:');
     const result = await pool.query('SELECT * FROM clients');
     console.log(result.rows);
-    return result.rows[0];
+    return result.rows;
 }

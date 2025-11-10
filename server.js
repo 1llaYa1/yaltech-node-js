@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    res.json(getTableContents());
+    res.send(`${getTableContents()}`);
 });
 
 /*app.post('/', (req, res) => {  
