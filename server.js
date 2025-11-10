@@ -21,7 +21,9 @@ app.post('/', (req, res) => {
     })
 });
 
-app.get('/test', checkConnection);
+app.get('/test', checkConnection, (req, res) => {
+    res.send('sent');
+});
 
 /*app.post('/', (req, res) => {  
     fs.readFile('./output.json', 'utf8', (err, data) => {
