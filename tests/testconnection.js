@@ -8,19 +8,27 @@ const pool = new Pool({
   port: 5432,
 });
 
-async function testConnect() {
+export const testConnection = async () => {
+    const client = await pool.connect();
+    client.release();
+    return 'OK';
+}
+
+/*async function testConnect() {
     console.log('Before connect');
     const client = await pool.connect();
     console.log('Connected!');
     client.release();
+}*/
+
+export const getClientsTable = async (req, res) => {
+    await pool.query('SELECT * FROM clients', (error, result) => {
+        if(error) {
+            console.error('Error connecting to the database', err.stack);
+        }
+        console.log(result.rows[0]);   
+    });
 }
 
-async function getTableContents() {
-    console.log('Table Contents:');
-    const result = await pool.query('SELECT * FROM clients');
-    console.log(result.rows);
-}
-
-getTableContents();
-
-testConnect();
+//var w = getClientsTable();
+console.log(await testConnection())
