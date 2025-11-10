@@ -14,20 +14,15 @@ const pool = new Pool({
 export const testConnection = async () => {
     const client = await pool.connect();
     client.release();
-    return 'OK';
+    return 'DB CONNECTION OK';
 }
 
-export const getTableContents = async () => {
+export const getClientsTableContents = async () => {
     const result = await pool.query('SELECT * FROM clients');
     return result.rows;
 }
 
-export const getClientsTable2 = async (req, res) => {
-    await pool.query('SELECT * FROM clients', (err, result) => {
-        if(err) {
-            console.log(result);
-            console.error('Error connecting to the database', err.stack);
-        }
-        res.status(200);    
-    });
+export const addClientToClientsTable = async () => {
+    const result = await pool.query('SELECT * FROM clients');
+    return result.rows;
 }

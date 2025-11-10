@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-import { getTableContents, testConnection } from './db.js'
+import { getClientsTableContents, testConnection } from './db.js'
 
 const app = express();
 
@@ -21,33 +21,13 @@ app.post('/', (req, res) => {
     })
 });
 
-app.get('/test', async (req, res) => {
-    res.send(await getTableContents());
+app.get('/clients', async (req, res) => {
+    res.send(await getClientsTableContents());
 });
 
-/*app.post('/', (req, res) => {  
-    fs.readFile('./output.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        try { 
-        fs.writeFileSync('./output.json', data.body, 'utf8', (err) => {
-            if (err) {
-                res.send(err.body);
-            } else {
-                res.json({
-                    success: true
-                });
-            }
-        });
-        } catch {
-            res.json({
-                success: true
-            });
-        }
-    });
-});*/
+app.get('/testdbconnection', async (req, res) => {
+    res.send(await testConnection());
+});
 
 app.listen(4444, (err) => {
     if (err) {
