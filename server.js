@@ -30,7 +30,15 @@ app.post('/clients', async (req, res) => {
     const fullname = data.fullname;
     const email = data.email;
     const comment = data.comment;
-    res.send(await addClientToClientsTable(fullname, email, comment));
+    if (await addClientToClientsTable(fullname, email, comment)){
+        res.json({
+            success: true,
+        })
+    } else {
+        res.json({
+            success: false,
+        })
+    }
 });
 
 app.get('/testdbconnection', async (req, res) => {
