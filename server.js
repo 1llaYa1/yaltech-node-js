@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
 });
 
 app.get('/test', async (req, res) => {
-    res.send(await testConnection());
+    res.send(await getTableContents());
 });
 
 /*app.post('/', (req, res) => {  

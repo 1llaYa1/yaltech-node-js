@@ -17,10 +17,9 @@ export const testConnection = async () => {
     return 'OK';
 }
 
-export async function getTableContents() {
-    console.log('Table Contents:');
+export const getTableContents = async () => {
     const result = await pool.query('SELECT * FROM clients');
-    console.log(result.rows);
+    return result.rows;
 }
 
 export const getClientsTable2 = async (req, res) => {
