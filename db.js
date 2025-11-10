@@ -1,5 +1,7 @@
 import { Pool } from 'pg';
-import 'dotenv'
+import { configDotenv } from 'dotenv';
+
+configDotenv({override: true, path: './.env'}); 
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -10,8 +12,9 @@ const pool = new Pool({
 });
 
 export const checkConnection = (req, res) => {
-    pool.query('SELECT NOW()', (err, result) => {
+    pool.query('SELECT * FROM clients', (err, result) => {
         if(err) {
+            console.log(result);
             console.error('Error connecting to the database', err.stack);
         }
         res.status(200);    
