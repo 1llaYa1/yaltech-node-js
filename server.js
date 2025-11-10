@@ -26,9 +26,7 @@ app.get('/clients', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
-    res.send(req.body)
-    /*
-    if (await addClientToClientsTable(fullname, email, comment)){
+    if (await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment)){
         res.json({
             success: true,
         })
@@ -37,7 +35,6 @@ app.post('/clients', async (req, res) => {
             success: false,
         })
     }
-        */
 });
 
 app.get('/testdbconnection', async (req, res) => {
