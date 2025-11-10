@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 //import fs from 'fs'
 
-import { checkConnection } from './db.js'
+import { testConnection } from './db.js'
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
     })
 });
 
-app.get('/test', checkConnection, (req, res) => {
+app.get('/test', testConnection, (req, res) => {
     res.send('sent');
 });
 

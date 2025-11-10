@@ -11,7 +11,14 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-export const checkConnection = async (req, res) => {
+export async function testConnection() {
+    console.log('Before connect');
+    const client = await pool.connect();
+    console.log('Connected!');
+    client.release();
+}
+
+export const getClientsTable = async (req, res) => {
     await pool.query('SELECT * FROM clients', (err, result) => {
         if(err) {
             console.log(result);
