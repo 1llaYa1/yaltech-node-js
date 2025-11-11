@@ -46,11 +46,10 @@ app.post('/clients', async (req, res) => {
     }
 });
 
-app.get('/test', (req, res) => {
-    res.json({
-        success: true,
-    })
+app.get('/test', async (req, res) => {
+    res.send(await testConnection());
 });
+
 
 app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
