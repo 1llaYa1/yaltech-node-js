@@ -35,7 +35,7 @@ export const trunkateClientsTable = async () => {
 }
 
 export const test = async () => {
-    await pool.query('SELECT * FROM clients', (err, result) => {
-        return [err,result];
-    });
+    await pool.query('SELECT * FROM clients').then((err, result) => {
+        return result;
+    })
 }
