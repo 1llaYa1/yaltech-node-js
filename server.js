@@ -46,7 +46,7 @@ app.post('/clients', async (req, res) => {
     }
 });
 
-app.get('/test', async (req, res) => {
+app.get('/test', (req, res) => {
     res.send('test');
 });
 
