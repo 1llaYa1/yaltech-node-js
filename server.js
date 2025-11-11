@@ -47,7 +47,7 @@ app.post('/clients', async (req, res) => {
 });
 
 app.get('/testhypothesis', async (req, res) => {
-    res.send(await testConnection());
+    res.send('test');
 });
 
 
