@@ -27,7 +27,7 @@ export const getClientsTableContents = async () => {
 
 export const addClientToClientsTable = async (req, res, fullname, email, comment) => {
     Promise.all([
-        await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${fullname}', '${email}', '${comment}');`)
+        await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${req.fullname}', '${req.email}', '${req.comment}');`)
     ]).then((result) => {
         res.send(result);
     });
