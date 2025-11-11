@@ -38,4 +38,5 @@ export const test = async () => {
     await pool.query('SELECT * FROM clients').then((err, result) => {
         return result;
     })
+    return true;
 }
