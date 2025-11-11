@@ -10,7 +10,7 @@ var certificate = fs.readFileSync('sslsert\/server.crt', 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 
-import { getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
+import { Test, getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
 
 const app = express();
 
@@ -34,21 +34,22 @@ app.get('/clients', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
-    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment), (err, result) => {
+    if (await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment)){
         res.json({
-            success:true
-        });
-        /*if (err) {
-            res.json({
-                success: true,
-            });
-        } else {
-            res.json({
-                success: false,
-                error: err,
-            });
-        }*/
+            success: true,
+        })
+    } else {
+        res.json({
+            success: false,
+        })
     }
+});
+
+app.get('/test', async (req, res) => {
+    var result = await Test('Test');
+    res.json({
+        text: result,
+    });
 });
 
 app.get('/testdbconnection', async (req, res) => {
