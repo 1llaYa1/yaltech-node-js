@@ -38,7 +38,7 @@ app.get('/clients', async (req, res) => {
 });*/
 
 app.post('/clients', async (req, res) => {
-    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment).then((result) => res.send(result));
+    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment).then((result) => res.json({result: result}));
 });
 
 app.get('/cleardb', async (req, res) => {
