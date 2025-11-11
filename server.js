@@ -7,8 +7,9 @@ import https from 'https'
 
 var privateKey  = fs.readFileSync('sslsert\/server.key', 'utf8');
 var certificate = fs.readFileSync('sslsert\/server.crt', 'utf8');
+var caBundle = fs.readFileSync('sslsert\/ca-bundle.pem', 'utf8');
 
-var credentials = {key: privateKey, cert: certificate};
+var credentials = {key: privateKey, cert: certificate, ca: caBundle};
 
 import { test, trunkateClientsTable, getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
 
