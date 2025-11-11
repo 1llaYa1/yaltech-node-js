@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
 
-import fs from 'fs'
-import http from 'http'
+//import fs from 'fs'
+//import http from 'http'
 /*import https from 'https'
 
 var privateKey  = fs.readFileSync('sslsert/server.key', 'utf8');
@@ -49,8 +49,8 @@ app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
 });
 
-var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
+//var httpServer = http.createServer(app);
+//var httpsServer = https.createServer(credentials, app);
 
 app.listen(4444, (err) => {
     if (err) {
