@@ -46,14 +46,14 @@ app.post('/clients', async (req, res) => {
     }
 });
 
-app.get('/testhypothesis', async (req, res) => {
-    res.send('test');
-});
-
-
 app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
 });
+
+app.get('/test', async (req, res) => {
+    res.send('test');
+});
+
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
