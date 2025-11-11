@@ -28,14 +28,3 @@ export const addClientToClientsTable = async (fullname, email, comment) => {
     const result = await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${fullname}', '${email}', '${comment}');`);
     return true;
 }
-
-export const Test = async () => {
-    const result = await pool.query('SELECT * FROM clients');
-    return true;
-    /*try { 
-        await pool.query('SELECT * FROM clients'+text);
-        return true;
-    } catch (err) {
-        return false;
-    }*/
-}
