@@ -34,16 +34,10 @@ app.get('/clients', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
-    var result = await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment);
-    if (result) {
-        res.json({
-            success: true,
-        })
-    } else {
-        res.json({
-            success: false,
-        })
-    }
+    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment);
+    res.json({
+        success: true,
+    })
 });
 
 app.get('/testdbconnection', async (req, res) => {
