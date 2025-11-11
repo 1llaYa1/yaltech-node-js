@@ -47,9 +47,9 @@ app.post('/clients', async (req, res) => {
 });
 
 app.get('/test', async (req, res) => {
-    var result = await Test('Test');
+    var result = await Test('');
     res.json({
-        text: result,
+        result: result,
     });
 });
 
