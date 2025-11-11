@@ -34,16 +34,20 @@ app.get('/clients', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
-    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment);
-    res.json({
-        success: true,
-    })
+    if (await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment)){
+        res.json({
+            success: true,
+        })
+    } else {
+        res.json({
+            success: false,
+        })
+    }
 });
 
 app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
 });
-
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
