@@ -53,7 +53,7 @@ var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(4444);
-httpServer.listen(8080);
+httpsServer.listen(8080);
 
 /*app.listen(4444, (err) => {
     if (err) {
