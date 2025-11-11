@@ -47,7 +47,7 @@ app.post('/clients', async (req, res) => {
 });
 
 app.get('/test', async (req, res) => {
-    res.send(await Test(''));
+    res.send('test');
 });
 
 app.get('/testdbconnection', async (req, res) => {
