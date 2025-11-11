@@ -29,7 +29,7 @@ export const addClientToClientsTable = async (fullname, email, comment, req, res
     Promise.all([
         await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${fullname}', '${email}', '${comment}');`)
     ]).then((result) => {
-        res.send(result);
+        return result;
     });
 }
 
