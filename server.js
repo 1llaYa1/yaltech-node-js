@@ -10,7 +10,7 @@ var certificate = fs.readFileSync('sslsert\/server.crt', 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 
-import { Test, getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
+import { getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
 
 const app = express();
 
@@ -47,7 +47,9 @@ app.post('/clients', async (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    res.send('test');
+    res.json({
+        success: true,
+    })
 });
 
 app.get('/testdbconnection', async (req, res) => {
