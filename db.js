@@ -39,6 +39,6 @@ export const test = (req, res) => {
     Promise.all([
         pool.query('SELECT * FROM clients')
     ]).then((err, result) => {
-        res.send(err);
+        res.send(result);
     })
 }
