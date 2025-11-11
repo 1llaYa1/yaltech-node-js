@@ -52,7 +52,7 @@ app.get('/testdbconnection', async (req, res) => {
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
-http.listen(4444, (err) => {
+app.listen(4444, (err) => {
     if (err) {
         return console.log(err);
     }
