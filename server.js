@@ -3,12 +3,12 @@ import cors from "cors"
 
 import fs from 'fs'
 import http from 'http'
-import https from 'https'
+/*import https from 'https'
 
 var privateKey  = fs.readFileSync('sslsert/server.key', 'utf8');
 var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
 
-var credentials = {key: privateKey, cert: certificate};
+var credentials = {key: privateKey, cert: certificate};*/
 
 import { getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
 
@@ -59,9 +59,9 @@ http.listen(4444, (err) => {
     console.log('Http Server OK');
 });
 
-https.listen(8080, (err) => {
+/*https.listen(8080, (err) => {
     if (err) {
         return console.log(err);
     }
     console.log('Https Server OK');
-});
+});*/
