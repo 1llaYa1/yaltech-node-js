@@ -55,7 +55,7 @@ app.get('/testdbconnection', async (req, res) => {
 });
 
 app.get('/test', async (req, res) => {
-    res.send(await test());
+    res.json(await test());
 });
 
 var httpServer = http.createServer(app);
