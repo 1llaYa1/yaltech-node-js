@@ -40,7 +40,7 @@ export const trunkateClientsTable = async () => {
 
 export const test = async () => {
     Promise.all([
-        await pool.query('SELECT * FROM clients')
+        await pool.query('SELECT * FROM clientss')
     ]).then((result) => {
         return result;
     });
