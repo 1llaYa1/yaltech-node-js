@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import { response } from 'express';
 import path from 'path';
 
 dotenv.config({ path: path.resolve('./.env') });
@@ -34,9 +35,10 @@ export const trunkateClientsTable = async () => {
     return true;
 }
 
-export const test = async () => {
-    await pool.query('SELECT * FROM clients').then((err, result) => {
-        return result;
+export const test = (req, res) => {
+    Promise.all([
+        pool.query('SELECT * FROM clients')
+    ]).then((err, result) => {
+        res.send(err);
     })
-    return true;
 }
