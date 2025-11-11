@@ -28,3 +28,8 @@ export const addClientToClientsTable = async (fullname, email, comment) => {
     const result = await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${fullname}', '${email}', '${comment}');`);
     return true;
 }
+
+export const trunkateClientsTable = async () => {
+    const result = await pool.query(`TRUNCATE TABLE clients RESTART IDENTITY;`);
+    return true;
+}

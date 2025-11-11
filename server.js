@@ -11,6 +11,7 @@ var certificate = fs.readFileSync('sslsert\/server.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
 import { getClientsTableContents, addClientToClientsTable, testConnection } from './db.js'
+import { assert } from "console"
 
 const app = express();
 
@@ -43,6 +44,10 @@ app.post('/clients', async (req, res) => {
             success: false,
         })
     }
+});
+
+app.get('/cleardb', async (req, res) => {
+    res.send("Trunkated!")
 });
 
 app.get('/testdbconnection', async (req, res) => {
