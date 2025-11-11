@@ -50,7 +50,9 @@ app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
 });
 
-app.get('/test', await test);
+app.get('/test', async (req, res) => {
+    await test().then((result) => res.json({result: result}));
+});
 
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);

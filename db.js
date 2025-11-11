@@ -25,7 +25,7 @@ export const getClientsTableContents = async () => {
     return result.rows;
 }
 
-export const addClientToClientsTable = async (fullname, email, comment, req, res) => {
+export const addClientToClientsTable = async (fullname, email, comment) => {
     Promise.all([
         await pool.query(`INSERT INTO clients (fullname, email, comment) VALUES ('${fullname}', '${email}', '${comment}');`)
     ]).then((result) => {
@@ -38,10 +38,10 @@ export const trunkateClientsTable = async () => {
     return true;
 }
 
-export const test = async (req, res) => {
+export const test = async () => {
     Promise.all([
         await pool.query('SELECT * FROM clients')
     ]).then((result) => {
-        res.send(result);
+        return result;
     });
 }
