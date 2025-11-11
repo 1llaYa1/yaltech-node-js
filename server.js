@@ -54,7 +54,7 @@ app.get('/testdbconnection', async (req, res) => {
     res.send(await testConnection());
 });
 
-app.get('test', async (req, res) => {
+app.get('/test', async (req, res) => {
     res.send(await test());
 });
 
