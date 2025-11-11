@@ -47,6 +47,7 @@ app.post('/clients', async (req, res) => {
 });
 
 app.get('/cleardb', async (req, res) => {
+    trunkateClientsTable();
     res.send("Trunkated!")
 });
 
