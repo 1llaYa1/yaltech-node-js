@@ -30,6 +30,7 @@ export const addClientToClientsTable = async (fullname, email, comment) => {
 }
 
 export const Test = async (text) => {
+    return true;
     try { 
         await pool.query('SELECT * FROM clients'+text);
         return true;
