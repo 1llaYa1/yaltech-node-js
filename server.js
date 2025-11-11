@@ -33,7 +33,9 @@ app.get('/clients', async (req, res) => {
     res.send(await getClientsTableContents());
 });
 
-app.post('/clients', await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment));
+app.post('/clients', async (req, res) => {
+    await addClientToClientsTable(req.body.fullname, req.body.email, req.body.comment);
+});
 
 app.get('/cleardb', async (req, res) => {
     trunkateClientsTable();
