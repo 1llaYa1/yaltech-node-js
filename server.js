@@ -59,8 +59,8 @@ app.get('/test', async (req, res) => {
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(80);
-httpsServer.listen(443);
+httpServer.listen(4444);
+httpsServer.listen(8080);
 
 /*app.listen(4444, (err) => {
     if (err) {
